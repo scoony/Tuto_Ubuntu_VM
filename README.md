@@ -10,3 +10,10 @@ Tutoriel complet pour avoir une VM de jeux sur Ubuntu
 ## Préambule
 
 Je fais beaucoup de script bash et je vous conseille de faire comme moi, les regrouper tous au même endroit est plutot pratique.
+
+
+## Aide:
+
+- Pour sauvegarder sous nano: CTRL+O
+- Pour quitter sous nano: CTRL+X
+- Pour coller dans le terminal: SHIFT+INSER (ou via le clique droit de la souris)

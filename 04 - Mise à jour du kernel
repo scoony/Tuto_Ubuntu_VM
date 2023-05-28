@@ -19,4 +19,20 @@ vfio_iommu_type1
 vfio_pci
 kvm
 kvm_amd
+
+Pour s'assurer que le matériel soit bien isolé nous allons utiliser un script.
+
+Commandes à saisir dans un terminal:
+- sudo su
+- cd /opt/scripts
+- wget https://raw.githubusercontent.com/scoony/Tuto_Ubuntu_VM/main/scripts/vfio_detach.sh
+- chmod +x vfio_detach.sh
+- crontab -e
+
+Si c'est votre première fois le système demandera quel éditeur utiliser, sélectionner nano.
+
+Ajouter cette ligne (copier/coller):
+@reboot                 sleep 5 && /opt/scripts/vfio_detach.sh > /var/log/vfio_detach.log 2>&1
+
+
 - reboot

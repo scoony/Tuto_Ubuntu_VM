@@ -1,0 +1,41 @@
+Pour éviter tout les soucis de réseaux nous allons créer un bridge et comme ça notre VM aura une IP indépendante et nous pourrons faire des règles de routages si besoin.
+
+Commandes à saisir dans un terminal:
+- cd ~
+- sudo su
+- nmcli con show --active
+
+Vous devriez avoir une connexion active, la mienne se nomme "eno1" mais avant ça pouvait être "eth1" ou "enp1s0", notez ce nom, nous en aurons besoin. Vous remplacerez dans les lignes suivantes "eno1" par le nom de la vôtre.
+
+Suite des commandes:
+- nmcli con add ifname br0 type bridge con-name br0
+- nmcli con add type bridge-slave ifname eno1 master br0
+- nmcli con modify br0 bridge.stp no
+- nmcli con down "Connexion filaire 1"
+- nmcli con up br0
+- systemctl restart NetworkManager.service
+
+Les lignes suivantes sont à copier/coller dans le terminal (toutes en une seule fois)
+
+cat > bridge.xml <<EOF
+<network>
+    <name>host-bridge</name>
+    <forward mode="bridge"/>
+    <bridge name="br0"/>
+</network>
+EOF
+
+On reprend les commandes une par une:
+- virsh net-define bridge.xml
+- virsh net-start host-bridge
+- virsh net-autostart host-bridge
+- reboot
+
+On vérifie:
+- nmcli con show --active
+
+Vous devriez voir une ligne avec "br0" et "bridge-slave-eno1" (eno1 étant le nom pour moi)
+
+
+## IMPORTANT ##
+Ne mettez pas d'ip fixe sur br0 ou cette machine cela annulera tout, si vous voulez une IP locale fixe vous pouvez le faire dans les réglages de votre routeur.
