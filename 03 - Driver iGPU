@@ -1,0 +1,9 @@
+Si vous avez un processeur AMD série 7000 je vous le conseille vivement.
+Ceci n'est que pour les iGPU d'AMD
+
+Commandes à lancer dans un terminal:
+- cd ~/Téléchargements
+- sudo su
+- wget https://repo.radeon.com/amdgpu-install/5.5.1/ubuntu/jammy/amdgpu-install_5.5.50501-1_all.deb
+- dpkg -i amdgpu-install_5.5.50501-1_all.deb
+- amdgpu-install
