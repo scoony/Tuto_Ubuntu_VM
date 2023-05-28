@@ -1,7 +1,20 @@
 Avant toute chose il faut s'assurer que le BIOS de votre carte mère soot prêt
 
+Je vous conseille de mettre à jour votre BIOS.
+Si toutefois vous ne l'avez jamais fait et ignorez comment ca marche alors ne le faites pas.
+
 ## Pour aller dans le BIOS
 - redémarrer le PC
 - appuyer frénétiquement sur la touche DEL/SUPPR avant que l'écran n'affiche quoi que ce soit
 - il faut que la touche soit pressée quand la carte mère démarre
 
+## Les réglages à vérifier/modifier
+# tout devrait être dans advanced/avancé 
+- utilisation du iGPU en priorité (la carte graphique intégré)
+Pour ma carte AMD par exemple: NB Configuration / Primary Video Device : IGFX Video
+
+- activation de IOMMU
+Pour ma carte AMD par exemple : AMD CBS / IOMMU : Enabled
+
+- activation 
+Pour ma carte AMD par exemple: CPU Configuration / SVM Mode : Enabled
