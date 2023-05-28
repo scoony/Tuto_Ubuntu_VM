@@ -1,2 +1,32 @@
  
 Ma VM est un peu particulière, j'utilise un disque virtuel sur mon disque principal pour le système et les logiciels et dans un vrai disque secondaire je met les jeux.
+
+Les avantages de ma méthode:
+- ça prend peu de place car Windows avec Steam et les autres lanceurs de jeux c'est tout petit (j'ai réservé 120Go chez moi et il me reste plus de 70Go de libre)
+- on peut augmenter la taille du disque qui contient les jeux sans avoir à tout réinstaller
+- on peut faire des sauvegardes du système très simplement (un copier/coller du disque virtuel)
+
+Pour que ce soit propre je met le disque virtuel (c'est un fichier) dans un dossier dédié à part.
+
+Commandes à saisir dans un terminal:
+- cd ~
+- mkdir VMs
+- cd VMs
+- fallocate -l 120G win11.img
+
+Nous avons donc un fichier qui se nomme "win11.img" et qui va nous servir de disque dur principal.
+
+Pour la suite on va le faire via l'interface graphique.
+- lancer le logiciel "Gestionnaire de machines virtuelles)
+- Édition / Préférences / Général / cocher "Enable XML editing"
+- Édition / Préférences / Nouvelle VM / x86 Firmware: UEFI
+- Fichier / Nouvelle machine virtuelle
+- sélectionner "Média d'installation local" puis appuyer sur "Forward"
+- sélectionner votre image ISO de Windows puis appuyer sur "Forward"
+- pour le CPU et la RAM vous êtes libres de mettre ce que vous voulez, ne mettez pas tout, je dirais 12Go de ram et la moitié de vos Threads (tout dépend du cas de figure mais de toute façon on pourra le modifier plus tard a volonté) puis appuyer sur "Forward"
+- là on vous demande de créer un disque virtuel mais nous allons utiliser celui que nous avions créer précédemment, donc cocher "selectionner ou créer un stockage personnalisé" puis "Gérer..." et "Parcourir en local" pour aller sélectionner notre "win11.img" qui se trouve dans votre dossier personnel dans le sous dossier "VMs".
+- la dernière page demande un nom, mettre "win11" par exemple
+- étendre "Sélection de réseau" et vérifier que ce soit en "Bridge device..." et que pour "Device Name" ce soit bien "br0"
+- appuyer sur "Terminer"
+
+L'installation de Windows va débuter.
