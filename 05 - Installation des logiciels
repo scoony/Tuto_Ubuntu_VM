@@ -1,2 +1,21 @@
-On installe le nécessaire à la VM
+On installe le nécessaire à la VM.
+
+Commandes à lancer dans le terminal:
+- sudo su
+- apt update
+- apt upgrade
+- apt install qemu-kvm qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virt-manager ovmf -y
+
+On va maintenant mettre le nouveau Qemu (à partir des sources)
+Lancer un nouveau terminal puis voici les commandes:
+- cd ~/Documents
+
+
+
+- wget https://download.qemu.org/qemu-8.0.0.tar.xz
+- tar xvJf qemu-8.0.0.tar.xz
+- cd qemu-8.0.0
+- ./configure --enable-spice --enable-usb-redir
+- make
+- sudo make install
 
