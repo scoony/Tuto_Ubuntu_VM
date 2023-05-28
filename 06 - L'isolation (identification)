@@ -30,7 +30,7 @@ Exécutons en un:
 
 Vous verrez des lignes comme celles ci:
 Group 13:	[10de:13c2] [R] 01:00.0  VGA compatible controller                GM204 [GeForce GTX 970]
-		    [10de:0fbb]     01:00.1  Audio device                             GM204 High Definition Audio Controller
+		[10de:0fbb]     01:00.1  Audio device                             GM204 High Definition Audio Controller
 Group 14:	[1bb1:5018] [R] 02:00.0  Non-Volatile memory controller           Device 5018
 Group 15:	[1022:43f4] [R] 03:00.0  PCI bridge                               Device 43f4
 Group 16:	[1022:43f5] [R] 04:00.0  PCI bridge                               Device 43f5
