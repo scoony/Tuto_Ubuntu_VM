@@ -20,5 +20,5 @@ On désactive apparmor pour libvirt (afin d'utiliser le dernier Qemu ou un bios 
 
 Commandes à lancer dans un terminal:
 - sudo touch /etc/apparmor.d/disable/usr.sbin.libvirtd
-
+- reboot
 

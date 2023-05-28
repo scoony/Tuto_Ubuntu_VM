@@ -6,9 +6,7 @@ Commandes à lancer dans le terminal:
 - apt update
 - apt install mainline
 - mainline --install-latest
-- reboot
 
-L'ordinateur va redémarrer mais il va falloir prévoir quelques modifications.
 On s'assure que les modules nécessaires sont chargés au démarrage.
 
 Encore dans un terminal:
