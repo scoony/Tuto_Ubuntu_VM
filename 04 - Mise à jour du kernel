@@ -1,0 +1,24 @@
+Afin d'être sûr que les cartes graphiques recentes soient prises en charge on va tout mettre à jour.
+
+Commandes à lancer dans le terminal:
+- sudo su
+- add-apt-repository ppa:cappelikan/ppa -y
+- apt update
+- apt install mainline
+- mainline --install-latest
+- reboot
+
+L'ordinateur va redémarrer mais il va falloir prévoir quelques modifications.
+On s'assure que les modules nécessaires sont chargés au démarrage.
+
+Encore dans un terminal:
+- sudo su
+- nano /etc/modules
+- ajouter:
+pci_stub
+vfio
+vfio_iommu_type1
+vfio_pci
+kvm
+kvm_amd
+- reboot
