@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+modprobe -r drm_kms_helper
+modprobe -r amdgpu
+modprobe -r radeon
+modprobe -r drm
+
+
 grub_extras=`cat /etc/default/grub | grep "^GRUB_CMDLINE_LINUX_DEFAULT"`
 pci_ids=`echo $grub_extras | grep -o 'vfio-pci[^ ]*' | cut -d= -f2- | sed 's/"//' | sed 's/,/ /g'`
 for pci_id in $pci_ids ; do
@@ -15,3 +22,9 @@ for pci_id in $pci_ids ; do
   echo "VIRSH ID : "$virsh_pci_id
   virsh nodedev-detach "$virsh_pci_id"
 done
+
+
+modprobe drm_kms_helper
+modprobe amdgpu
+modprobe radeon
+modprobe drm
