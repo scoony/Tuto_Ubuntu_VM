@@ -1,0 +1,14 @@
+ 
+Afin d'éviter tout soucis avec un mauvais kernel nous allons modifier le grub pour y accéder ... au cas où.
+
+Commandes à saisir dans un terminal:
+- sudo nano /etc/default/grub
+
+Vérifiez ces deux lignes et modifiez les si nécessaire:
+GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=5
+
+Puis on applique:
+- sudo update-grub
+
+Si vous avez un soucis, au démarrage appuyez pleins de fois sur une flèche directionnelle (celle du bas par exemple) jusqu'à ce que vous accediez au menu du grub. Il possède un mode avancé pour lancer un ancien kernel ou un mode sans échec (recovery).

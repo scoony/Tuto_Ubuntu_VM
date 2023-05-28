@@ -1,0 +1,48 @@
+ 
+La partie la plus importante et je vais parler le plus simplement possible.
+
+Pour pouvoir relier du matériel directement à une VM il faut l'isoler, c'est à dire qu'il faut faire en sorte que le Ubuntu l'ignore complètement.
+
+Ensuite il faut comprendre que ce système d'isolation se base sur des groupes iommu, le nom importe peu mais quand vous isolez un élément d'un groupe vous devrez isoler le groupe complet.
+
+Pour finir chaque matériel possède deux identifiants, un identifiant matériel et un identifiant PCI, l'identifiant matériel ne change jamais mais l'identifiant PCI peut changer au gré des changements de matériel dans votre PC (en ajoutant une nouvelle carte PCI par exemple).
+
+L'identifiant matériel est de la forme: 15b7:5030
+L'identifiant PCI est de la forme: 11.00.0
+
+J'ai fait deux scripts pour que vous puissiez récupérer les informations nécessaires.
+
+Commandes à saisir dans un terminal:
+- sudo su
+- cd /opt
+- mkdir scripts
+- cd scripts
+- wget https://raw.githubusercontent.com/scoony/Tuto_Ubuntu_VM/main/scripts/iommu_grp.sh
+- wget https://raw.githubusercontent.com/scoony/Tuto_Ubuntu_VM/main/scripts/iommu_grp_details.sh
+- chmod +x *.sh
+
+Les deux scripts ont le même objectif mais l'un est plus détaillé que l'autre.
+
+Exécutons en un:
+- sudo su
+- cd /opt/scripts
+- ./iommu_grp_details.sh
+
+Vous verrez des lignes comme celles ci:
+Group 13:	[10de:13c2] [R] 01:00.0  VGA compatible controller                GM204 [GeForce GTX 970]
+		    [10de:0fbb]     01:00.1  Audio device                             GM204 High Definition Audio Controller
+Group 14:	[1bb1:5018] [R] 02:00.0  Non-Volatile memory controller           Device 5018
+Group 15:	[1022:43f4] [R] 03:00.0  PCI bridge                               Device 43f4
+Group 16:	[1022:43f5] [R] 04:00.0  PCI bridge                               Device 43f5
+
+Ici nous voyons donc les fameux groupes, les identifiants matériels sont entre crochets et juste après les identifiants PCI.
+
+Vous devrez notez les identifiants (les deux) pour les groupes que vous souhaitez relier à la VM. Sur mon exemple il y a ma carte graphique actuelle, vous voyez que son groupe (le 13) comporte deux élément, nous avons donc besoin des deux.
+
+Identifiants matériels : 10de:13c2 et 10de:0fbb
+Identifiants PCI: 01:00.0 et 01:00.1
+
+Vous isolez donc ce que vous voulez mais attention si par exemple vous isolez le disque dur de votre Ubuntu ça va poser problème.
+
+Personnellement j'ai isolé ma carte graphique, un disque nvme et un contrôleur USB qui ne comportait que 2 ports USB et rien d'autre. Si vous voulez des USB lancez le script avec la clé branchée, elle apparaîtra, vous saurez donc quel est le groupe de ce port USB, déplacez là et recommencez si nécessaire. Si vous avez deux nvme et que vous voulez en isoler un, ce n'est pas compliqué, sachant que celui du linux est dans le premier emplacement sur la carte (en dessous du CPU) son groupe sera inférieur au deuxième, mon principal "Non-Volatile memory controller" est dans mon exemple, c'est le groupe 14 alors que celui de ma VM est dans le groupe 21. Vous avez un doute, notez les groupes des deux, déconnectez le deuxième, relancez le script et regardez celui qui a disparu (éteindre le pc, je n'ai pas besoin de préciser ça).
+

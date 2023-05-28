@@ -1,0 +1,17 @@
+Nous avons donc les identifiants de notre matériel à isoler, nous allons donc maintenant appliquer ça à notre système.
+
+Pour cela nous allons utiliser l'approche GRUB pour que ce soit plus facile, GRUB utilise les identifiants matériels qui ne changent pas donc ça évite de devoir adapter quand on ajoute ou retire du matériel.
+
+Commandes à saisir dans un terminal :
+- sudo su
+- nano /etc/default/grub
+
+Repérez la ligne "GRUB_CMDLINE_LINUX_DEFAULT", c'est celle là que nous allons modifier.
+
+Voici à quoi elle doit ressembler:
+GRUB_CMDLINE_LINUX_DEFAULT="noresume amd_iommu=on iommu=pt video=efifb:off,vesafb:off,vesa:off,simplefb:off report_ignored_msrs=0 kvm.ignore_msrs=1 vfio-pci.ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb"
+
+Dans la partie vfio-pci.ids vous remplacez les identifiants matériels de mon matériel par les vôtres. C'est aussi simple que ça. Pas d'espace, des virgules entre chaque identifiant.
+
+On applique les modifications:
+- sudo update-grub
