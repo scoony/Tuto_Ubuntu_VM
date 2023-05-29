@@ -17,6 +17,10 @@ Chez moi par exemple j'ai l'HDMI de ma GeForce qui est relié à mon moniteur et
 
 Je fais beaucoup de script bash et je vous conseille de faire comme moi, les regrouper tous au même endroit est plutot pratique.
 
+## Attention
+
+Pour que la vrai carte graphique soit utilisée par la VM il faut qu'un écran soit connecté, que ce soit un véritable écran (même si il est éteint) ou une clé HDMI ou DP qui simule un écran (on en trouve sur Amazon ou autre (dummy HDMI key)
+
 
 ## Aide:
 
