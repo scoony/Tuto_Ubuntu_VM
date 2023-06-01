@@ -24,6 +24,8 @@ vfio_pci ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb
 kvm
 kvm_amd
 
+il faut mettre un # avant amdgpu si vous avez la ligne amdgpu dans ce fichier.
+
 - nano /etc/modules
 pci_stub
 vfio
