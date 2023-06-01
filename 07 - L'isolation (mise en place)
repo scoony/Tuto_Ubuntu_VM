@@ -15,3 +15,28 @@ Dans la partie vfio-pci.ids vous remplacez les identifiants matériels de mon ma
 
 On applique les modifications:
 - sudo update-grub
+
+- nano /etc/initramfs-tools/modules
+pci_stub
+vfio
+vfio_iommu_type1
+vfio_pci ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb
+kvm
+kvm_amd
+
+- nano /etc/modules
+pci_stub
+vfio
+vfio_iommu_type1
+vfio_pci ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb
+kvm
+kvm_amd
+
+- nano /etc/modprobe.d/amdgpu.conf
+softdep radeon pre: vfio-pci 
+softdep amdgpu pre: vfio-pci 
+
+- nano /etc/modprobe.d/vfio.conf
+options vfio-pci ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb
+
+-update-initramfs -u
