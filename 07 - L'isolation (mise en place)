@@ -38,6 +38,11 @@ kvm_amd
 softdep radeon pre: vfio-pci 
 softdep amdgpu pre: vfio-pci 
 
+- nano /etc/modprobe.d/nvidia.conf
+softdep nouveau pre: vfio-pci 
+softdep nvidia pre: vfio-pci 
+softdep nvidia* pre: vfio-pci
+
 - nano /etc/modprobe.d/vfio.conf
 options vfio-pci ids=1022:15b7,15b7:5030,10de:13c2,10de:0fbb
 
