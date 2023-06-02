@@ -27,3 +27,11 @@ Pour que la vrai carte graphique soit utilisée par la VM il faut qu'un écran s
 - Pour sauvegarder sous nano: CTRL+O
 - Pour quitter sous nano: CTRL+X
 - Pour coller dans le terminal: SHIFT+INSER (ou via le clique droit de la souris)
+
+## Contenu du dossier root
+
+Les fichiers que j'ai compilé + mes fichiers avec la configuration
+
+Compilation:
+- Qemu 8.0 (USB Redirrection et spice)
+- OVMF en date du 01/06/2013 (TPM2, SMM et Secure Boot)
