@@ -7,6 +7,9 @@ Nous aurons donc deux ordinateurs dans un seul.
 
 Chez moi par exemple j'ai l'HDMI de ma GeForce qui est relié à mon moniteur et le Display Port de ma carte mère au même moniteur. Il me suffit de changer la source sur mon écran et d'alterner entre HDMI ou DP et je bascule d'un système à l'autre.
 
+Dans les explications que je donne les lignes débutant par "-" sont des commandes à envoyer dans un terminal.
+Le "-" au début de la ligne n'est pas à prendre en compte.
+
 ## Prérequis
 - Un systeme d'exploitation Ubuntu 22.04 LTS
 - Deux cartes graphiques (pour mon exemple une vrai et une intégrée)
