@@ -20,7 +20,8 @@ vfio_pci
 kvm
 kvm_amd
 
-Pour s'assurer que le matériel soit bien isolé nous allons utiliser un script.
+Les derniers kernels étant un peu particuliers niveau isolation (on s'en occupe dans une autre étape), on règle le soucis de suite.
+Pour s'assurer que le matériel soit bien isolé par la suite nous allons utiliser un script.
 
 Commandes à saisir dans un terminal:
 - sudo su
