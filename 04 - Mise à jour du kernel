@@ -35,5 +35,3 @@ Si c'est votre première fois le système demandera quel éditeur utiliser, sél
 Ajouter cette ligne (copier/coller):
 @reboot                 sleep 5 && /opt/scripts/vfio_detach.sh > /var/log/vfio_detach.log 2>&1
 
-
-- reboot

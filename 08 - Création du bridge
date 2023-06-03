@@ -1,3 +1,5 @@
+## SI VOUS ETES EN WIFI NE FAITES PAS CE QUI SUIT
+
 Pour éviter tout les soucis de réseaux nous allons créer un bridge et comme ça notre VM aura une IP indépendante et nous pourrons faire des règles de routages si besoin.
 
 Commandes à saisir dans un terminal:
