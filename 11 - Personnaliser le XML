@@ -57,3 +57,6 @@ Je vais mettre des "xxx" dans mes exemples car nous n'aurons pas forcément les 
   </os>
 
 
+## Pour le son
+dans /etc/libvirt/qemu.conf user = "scoony"
+dans /etc/apparmor.d/abstractions/libvirt.qemu /run/user/1000/pulse/native rw,
