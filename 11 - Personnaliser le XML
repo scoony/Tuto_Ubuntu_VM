@@ -58,5 +58,16 @@ Je vais mettre des "xxx" dans mes exemples car nous n'aurons pas forcément les 
 
 
 ## Pour le son
-dans /etc/libvirt/qemu.conf user = "scoony"
+dans /etc/libvirt/qemu.conf user = "scoony" ## pas sur que ce soit pour ca
 dans /etc/apparmor.d/abstractions/libvirt.qemu /run/user/1000/pulse/native rw,
+
+
+## Pour pouvoir activer resizable bar
+# pour ceux qui ont plus de 16Go de vram
+- remplacer la première ligne "<domain type='kvm'>" par
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'> xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+- ajouter après "</device>" et avant "</domain>"
+  <qemu:commandline>
+    <qemu:arg value='-fw_cfg'/>
+    <qemu:arg value='opt/ovmf/X-PciMmio64Mb,string=65536'/>
+  </qemu:commandline>
