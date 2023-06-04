@@ -17,7 +17,7 @@
 # 14 = 16GB
 # 15 = 32GB
 
-## J'ai mis 32/8
+## J'ai mis 32GB/8MB
 ## lspci -vvvs 03:00.0      
 
 echo -n "0000:03:00.0" > /sys/bus/pci/drivers/vfio-pci/unbind
