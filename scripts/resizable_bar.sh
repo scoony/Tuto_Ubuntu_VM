@@ -18,6 +18,7 @@
 # 15 = 32GB
 
 ## J'ai mis 32/8
+## lspci -vvvs 03:00.0      
 
 echo -n "0000:03:00.0" > /sys/bus/pci/drivers/vfio-pci/unbind
 echo "15" > /sys/bus/pci/devices/0000\:03\:00.0/resource0_resize
