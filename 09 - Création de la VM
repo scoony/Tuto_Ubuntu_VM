@@ -16,6 +16,13 @@ Commandes à saisir dans un terminal:
 
 Nous avons donc un fichier qui se nomme "win11.img" et qui va nous servir de disque dur principal.
 
+Une légère modification avant de débuter.
+Commande à saisir dans un terminal:
+- nano /etc/libvirt/qemu.conf
+
+Chercher la ligne #user = "root" et mettre en dessous (xxx étant votre identifiant de compte linux, le nom de votre compte):
+user = "xxx"
+
 Pour la suite on va le faire via l'interface graphique.
 - lancer le logiciel "Gestionnaire de machines virtuelles)
 - Édition / Préférences / Général / cocher "Enable XML editing"
