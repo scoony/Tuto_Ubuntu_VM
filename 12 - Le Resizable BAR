@@ -1,0 +1,18 @@
+Alors c'est plutôt particulier car pour les moment ça fonctionne mais d'une façon originale.
+
+Dans l'étape BIOS nous l'avons désactivé mais ce n'est pas grave.
+
+L'astuce sur Linux c'est de l'activer en paramétrant le serveur pour qu'il l'utilise même si la carte mère ne donne pas l'ordre au système de l'utiliser.
+
+Nous allons donc tout simplement utiliser un petit script qui fera tout automatiquement.
+
+Commandes à utiliser dans un terminal:
+- sudo su
+- cd /opt/scripts
+- wget https://raw.githubusercontent.com/scoony/Tuto_Ubuntu_VM/main/scripts/resizable_bar.sh
+- chmod +x resizable_bar.sh
+- crontab -e
+
+Ajouter cette ligne (copier/coller):
+@reboot                 sleep 30 && /opt/scripts/resizable_bar.sh > /var/log/resizable_bar.log 2>&1
+

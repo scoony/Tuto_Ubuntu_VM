@@ -23,8 +23,9 @@ On désactive apparmor pour libvirt (afin d'utiliser le dernier Qemu ou un bios 
 Commandes à lancer dans un terminal:
 - sudo touch /etc/apparmor.d/disable/usr.sbin.libvirtd
 
+Nous allons maintenant nous occuper de l'OVMF (le BIOS de notre machine virtuelle)
 
-## EDK2
+Commandes à lancer dans un terminal:
 - cd /
 - sudo chmod 777 opt
 - cd /opt
@@ -32,26 +33,19 @@ Commandes à lancer dans un terminal:
 - cd edk2
 - bash
 - git submodule update --init
-
-## pour mettre a jour
-- git pull
-- git submodule update
-
-- source ./edksetup.sh
-- make -C BaseTools/
 - sed -i -e 's/^TARGET_ARCH.*/TARGET_ARCH = X64/' Conf/target.txt
 - sed -i -e 's/^TOOL_CHAIN_TAG.*/TOOL_CHAIN_TAG = GCC5/' Conf/target.txt
 - sed -i -e 's/^ACTIVE_PLATFORM.*/ACTIVE_PLATFORM = OvmfPkg\/OvmfPkgX64.dsc/' Conf/target.txt
 
-## ?
-- cd /opt/edk2/CryptoPkg/Library/OpensslLib
-- ./process_files.pl
-## ?
+C'est installé, si toutefois vous devez le refaire un jour, pour mettre à jour voici les commandes:
+- git pull
+- git submodule update
 
+Maintenant on passe à la compilation (dans le même terminal):
+- source ./edksetup.sh
+- make -C BaseTools/
 - build -D SMM_REQUIRE -D TPM2_ENABLE -D SECURE_BOOT_ENABLE -D HTTP_BOOT_ENABLE -D TLS_ENABLE
 - cd /opt/edk2/Build/OvmfX64/DEBUG_GCC5/FV
 - sudo su
 - mkdir -p /usr/local/share/ovmf
 - cp OVMF* /usr/local/share/ovmf/
-
-## je ne peux pas utiliser secure="yes" avec OVMF.fd

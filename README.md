@@ -1,4 +1,10 @@
 # Tuto_Ubuntu_VM
+
+Carte graphiques testées et validées:
+- XFX Speedster MERC310 (AMD Radeon RX 7900 XT)
+- PNY GTX 970 (NVIDIA GeForce GTX 970)
+- Sapphire Pulse RX 570 (AMD Radeon RX 570)
+
 Tutoriel complet pour avoir une VM de jeux sur Ubuntu.
 
 Une VM de jeu, c'est un ordinateur virtuel qui sera sous Windows et qui se comportera comme un vrai ordinateur. Nous allons y relier une vrai carte graphique et tout ce que l'on veut.

@@ -22,3 +22,9 @@ Pour ma carte AMD par exemple : AMD CBS / IOMMU : Enabled
 
 - activation de la virtualisation (SVM/Intel VT-x)
 Pour ma carte AMD par exemple: CPU Configuration / SVM Mode : Enabled
+
+- désactiver Resizable BAR
+Pour ma carte AMD par exemple: PCI Subsystem Settings / Re-size BAR support : Disabled
+
+- activer 4G Decode
+Pour ma carte AMD par exemple: PCI Subsystem Settings / Above 4G Decoding : Enabled
