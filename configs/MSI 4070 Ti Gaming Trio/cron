@@ -1,0 +1,19 @@
+CRON_SCRIPT="oui"
+LANG=fr_FR.UTF-8
+TERM=dumb
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+@reboot			sleep 10 && /opt/scripts/clean-lock.sh
+@reboot			sleep 10 && /opt/scripts/new_mount.sh
+@reboot			sleep 15 && /opt/scripts/kvm_ignore.sh
+@reboot			sleep 5 && /opt/scripts/vfio_detach.sh > /var/log/vfio_detach.log 2>&1
+@reboot			sleep 15 && /opt/scripts/resizable_bar.sh > /var/log/resizable_bar.log 2>&1
+##0 * * * *		/opt/scripts/convert2hdlight.sh > /var/log/convert2hdlight.log 2>&1
+##*/15 * * * *		/opt/scripts/range.sh > /var/log/range.log 2>&1
+5 * * * *		/opt/scripts/plex_links.sh > /var/log/plex_links.log 2>&1
+*/5 * * * *		/opt/scripts/calibre_auto.sh > /var/log/calibre_auto.log 2>&1
+*/15 * * * *		/opt/scripts/plex_sort.sh > /var/log/plex_sort.log 2>&1
+*/15 * * * *		/opt/scripts/ebook_down.sh > /var/log/ebook_down.log 2>&1
+##*/5 * * * *		/opt/scripts/amazon.sh > /var/log/amazon.log 2>&1
+*/5 * * * *		/opt/scripts/mib.sh > /var/log/mib.log 2>&1
+* * * * *		/opt/scripts/asus_bios.sh > /var/log/asus_bios.txt 2>&1
