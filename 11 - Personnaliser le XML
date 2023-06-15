@@ -84,3 +84,8 @@ Juste avant la ligne "# Site-specific additions and overrides. See local/README 
     <qemu:arg value='-fw_cfg'/>
     <qemu:arg value='opt/ovmf/X-PciMmio64Mb,string=65536'/>
   </qemu:commandline>
+
+## Pour le Hugepage
+# https://mathiashueber.com/configuring-hugepages-use-virtual-machine/
+nano /etc/sysctl.conf
+ajouter à la fin vm.nr_hugepages = 8800 (pour 16Go moi j'ai mis 17000 pour 32Go)
