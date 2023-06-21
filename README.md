@@ -1,7 +1,7 @@
 # Tuto_Ubuntu_VM
 
 Carte graphiques testées et validées:
-- MSI 4070 Ti Gaming Trio (NVIDIA GeForce 4070 Ti)
+- MSI RTX 4070 Ti Gaming Trio (NVIDIA GeForce 4070 Ti)
 - XFX Speedster MERC310 (AMD Radeon RX 7900 XT)
 - PNY GTX 970 (NVIDIA GeForce GTX 970)
 - Sapphire Pulse RX 570 (AMD Radeon RX 570)
