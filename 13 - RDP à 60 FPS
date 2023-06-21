@@ -1,0 +1,37 @@
+ 
+Nous allons donc activer la prise de contrôle à distance de Windows et améliorer ses performances pour pouvoir jouer à distance.
+
+Tout se fait dans Windows.
+
+Pour activer le RDP:
+- aller dans les paramètres
+- appuyer sur "Réseau et internet"
+- appuyer sur "Paramètres réseau avancés"
+- appuyer sur "Paramètres de partage avancés"
+- cocher les deux cases ( "recherche du réseau" et "partage de fichiers et d'imprimantes")
+- revenir dans la section "Système" (à gauche)
+- appuyer sur "Bureau à distance" (c'est vers le bas)
+- activer "Bureau à distance"
+- déplier le menu à l'aide de la flèche à droite du bouton d'activation
+- décocher "Exiger que les appareils utilisent l'authentification au niveau du réseau"
+
+Voilà l'ordinateur est désormais accessible sur le réseau local, pour le rendre accessible depuis l'extérieur il faudra une règle de routage dans votre routeur.
+
+Améliorer le RDP et le passer à 60 images par secondes.
+
+- clique droit sur le menu démarrer et sélectionner "exécuter"
+- saisir "regedit" et valider
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations
+DWORD(32 bits) nommé "DWMFRAMEINTERVAL" valeur décimale 15
+- quitter regedit
+- clique droit sur le menu démarrer et sélectionner "exécuter"
+- saisir "gpedit.msc" et valider
+Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment > RemoteFX for Windows Server
+- activer les 3
+Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Remote Session Environment
+- activer "Use the hardware default graphics adapter for all Remote Desktop Services sessions"
+- activer "Configure compression for RemoteFX data"
+- quitter la fenêtre
+- redémarrer windows
+
+Vous pouvez tester avec le site http://www.testufo.com
